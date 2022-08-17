@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label>İsminizi Giriniz</label>
+    <br />
+    <input type="text" name="isim" id="isim" />
+    <br />
+
+    <label>Soyisminizi Giriniz</label>
+    <br />
+    <input type="text" name="soyisim" id="soyisim" />
+    <br />
+    <br />
+    <button type="button" onclick="veriSakla(); LokasyonAl()">
+      Verileri Kaydet
+    </button>
+    <br /><br />
+    <button type="button" onclick="LokasyonAl(); veriGetir()">
+      Verileri Getir
+    </button>
+
+    <p id="isimData"></p>
+    <p id="soyisimData"></p>
+    <p id="enlem"></p>
+    <p id="boylam"></p>
+
+    <br><br><br>
+    <h3><a href="index.html">Ana Sayfa</a></h3>
+    <h3><a href="SelamVer.html">Ders 1</a></h3>
+    <h3><a href="çizimvb.html">Ders 2</a></h3>
+    <h3><a href="geo.html">Ders 3</a></h3>
+    <h3><a href="ders4.html">Ders 4</a></h3>
+    <h3><a href="example.html">Example</a></h3>
+
+    <script>
+      function LokasyonAl() {
+        if (navigator.geolocation) {
+          //Lokasyonu alan fonksiyon
+          navigator.geolocation.getCurrentPosition(savePosition); //lokasyon alındıysa istenen formatta gösterme
+        } else {
+          lokasyon.innerHTML =
+            "Browser desteklemiyor veya lokasyon bulunamıyor!";
+        }
+      }
+      function savePosition(position) {
+        var enlem = position.coords.latitude;
+        var boylam = position.coords.longitude;
+
+        localStorage.setItem("enlem", enlem);
+        localStorage.setItem("boylam", boylam);
+      }
+
+      function veriSakla() {
+        var isim = document.getElementById("isim").value;
+        var soyisim = document.getElementById("soyisim").value;
+
+        localStorage.setItem("isim", isim);
+        localStorage.setItem("soyisim", soyisim);
+      }
+
+      function veriGetir() {
+        document.getElementById("isimData").innerHTML =
+          "İsminiz: " + localStorage.getItem("isim");
+        document.getElementById("soyisimData").innerHTML =
+          "Soyisminiz: " + localStorage.getItem("soyisim");
+        document.getElementById("enlem").innerHTML =
+          "Enlem: " + localStorage.getItem("enlem");
+        document.getElementById("boylam").innerHTML =
+          "Boylam: " + localStorage.getItem("boylam");
+      }
+    </script>
+  </body>
+</html>

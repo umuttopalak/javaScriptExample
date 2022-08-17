@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="lib/style.css" />
+    <script src="lib/script.js"></script>
+  </head>
+
+  <body>
+    <h1 id="baslik">JavaScripte ile Çalışma</h1>
+    <p id="pr">Boş</p>
+    <p id="paragraf"></p>
+
+    <button
+      type="button"
+      onclick="document.getElementById('paragraf').innerHTML='Değişim yaşandı';
+    document.getElementById('paragraf').style.fontSize = '50px';
+    document.getElementById('paragraf').style.color = 'red';
+    document.getElementById('paragraf').style.backgroundColor= 'black';
+    document.getElementById('pr').innerHTML=' '"
+    >
+      Tıkla ve Değişimi Yaşa
+    </button>
+
+    <script>
+      document.getElementById("baslik").innerHTML = "Hoş geldiniz";
+      document.getElementById("paragraf").innerHTML = "Hoş geldiniz!!";
+    </script>
+  </body>
+</html>
